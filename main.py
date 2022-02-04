@@ -508,7 +508,7 @@ def poll():
         # update graphs with new data
         new_data = data_util.get_all_parsed_data()
         cache.update_data(new_data)
-        time.sleep(0.9)  # HACK: wut are we doing here
+        time.sleep(0.9)
     return
 
 
