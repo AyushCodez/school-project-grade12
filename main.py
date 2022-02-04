@@ -310,7 +310,6 @@ def setup_window():
     drop3.pack(in_=bottom, side=tk.RIGHT)
 
     def save_file_date():
-        print(cal.get_date(), cal_var.get())
         a = clicked.get()
         if a == "Hour":
             a = "0"
