@@ -498,11 +498,11 @@ def setup_window():
 
 
 def poll():
-    global thread_death
+    global thread_death, run_in_bg
     while True:
         with open("bg_run.txt", 'r') as f:
             bg_run = int(f.read())
-        if thread_death and not(bg_run):
+        if (thread_death and not(bg_run)) or not(run_in_bg):
             print("\nShutting down...")
             break
         # update graphs with new data
@@ -513,6 +513,7 @@ def poll():
 
 
 thread_death = False
+run_in_bg = True
 
 
 def main():
@@ -525,9 +526,17 @@ def main():
         disk_graph.animate()
 
         def on_closing():
-            global thread_death
+            global thread_death, run_in_bg
             thread_death = True
             window.destroy()
+            with open("bg_run.txt", 'r') as f:
+                bg_run = int(f.read())
+            if bg_run == 1:
+                nu = input("Press enter to exit")
+                run_in_bg = False
+            
+            
+            
         window.protocol("WM_DELETE_WINDOW", on_closing)
         window.mainloop()
     except KeyboardInterrupt:
