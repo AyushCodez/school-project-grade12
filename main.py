@@ -1,4 +1,4 @@
-# use tkinter to create gui with 3 tabs - current, historical and read csv
+﻿# use tkinter to create gui with 3 tabs - current, historical and read csv
 
 # import libraries
 import tkinter as tk
@@ -39,7 +39,7 @@ def setup_window():
     window = tk.Tk()
     window.title("Your Computer At A Glance (YCAAG)")
     if platform == "win32":
-        window.geometry("500x937")
+        window.geometry("300x650")
     else:
         window.geometry("400x750")
     window.resizable(0, 0)
