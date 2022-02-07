@@ -1,4 +1,4 @@
-# use tkinter to create gui with 3 tabs - current, historical and read csv
+﻿# use tkinter to create gui with 3 tabs - current, historical and read csv
 
 # import libraries
 import tkinter as tk
@@ -39,7 +39,7 @@ def setup_window():
     window = tk.Tk()
     window.title("Your Computer At A Glance (YCAAG)")
     if platform == "win32":
-        window.geometry("500x937")
+        window.geometry("300x650")
     else:
         window.geometry("400x750")
     window.resizable(0, 0)
@@ -72,7 +72,7 @@ def setup_window():
     tab_control.add(tab1, text="Current")
     tab_control.add(tab2, text="Historical")
     tab_control.add(tab3, text="Export CSV")
-    tab_control.add(tab4, text="Import CSV/🛠️")
+    tab_control.add(tab4, text="Import CSV")
     tab_control.pack(expand=1, fill="both")
 
     cpu_graph = graph_util.AnimatedBaseGraph(tab1, 60, "CPU")
@@ -482,7 +482,7 @@ def setup_window():
         'Arial', 18)).pack(in_=Import, pady=10)
     tk.Button(tab4, text="Upload data", command=upload_data).pack(
         in_=Import, pady=10)
-    tk.Label(tab4, text="Settings 🛠️", font=(
+    tk.Label(tab4, text="Settings", font=(
         'Arial', 18)).pack(in_=Settings, pady=10)
     tk.Checkbutton(tab4, text="Keep running in Background?",
                    variable=Checkbutton1,
