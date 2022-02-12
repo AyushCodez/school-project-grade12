@@ -423,7 +423,7 @@ def setup_window():
             date2 = max(date_list)
 
             x_data = [date1 + timedelta(minutes=i)
-                      for i in range((date2-date1).seconds//60 + 1)]
+                      for i in range(int((date2-date1).total_seconds()//60) + 1)]
             x_from_the_dataa = [datetime.strptime(
                 i[0], "%Y-%m-%d %H:%M") for i in data]
             yhaha = [float(ts[1]) for ts in data]
