@@ -39,7 +39,7 @@ def setup_window():
     window = tk.Tk()
     window.title("Your Computer At A Glance (YCAAG)")
     if platform == "win32":
-        window.geometry("300x650")
+        window.geometry("500x937")
     else:
         window.geometry("400x750")
     window.resizable(0, 0)
@@ -186,29 +186,38 @@ def setup_window():
         y_data_cpu = []
         c = 0
         for i in x_data:
-            if i not in x_from_the_dataa:
+            if c == len(x_from_the_dataa):
                 y_data_cpu.append(None)
             else:
-                y_data_cpu.append(yhaha[c])
-                c += 1
+                if i == x_from_the_dataa[c]:
+                    y_data_cpu.append(yhaha[c])
+                    c += 1
+                else:
+                    y_data_cpu.append(None)
         yhaha = [(float(ts[3])/float(ts[2]))*100 for ts in data]
         y_data_mem = []
         c = 0
         for i in x_data:
-            if i not in x_from_the_dataa:
+            if c == len(x_from_the_dataa):
                 y_data_mem.append(None)
             else:
-                y_data_mem.append(yhaha[c])
-                c += 1
+                if i == x_from_the_dataa[c]:
+                    y_data_mem.append(yhaha[c])
+                    c += 1
+                else:
+                    y_data_mem.append(None)
         yhaha = [(float(ts[5])/float(ts[4]))*100 for ts in data]
         y_data_disk = []
         c = 0
         for i in x_data:
-            if i not in x_from_the_dataa:
+            if c == len(x_from_the_dataa):
                 y_data_disk.append(None)
             else:
-                y_data_disk.append(yhaha[c])
-                c += 1
+                if i == x_from_the_dataa[c]:
+                    y_data_disk.append(yhaha[c])
+                    c += 1
+                else:
+                    y_data_disk.append(None)
 
         axs[0].set_ylim(0, 101)
         axs[1].set_ylim(0, 101)
@@ -430,29 +439,38 @@ def setup_window():
             y_data_cpu = []
             c = 0
             for i in x_data:
-                if i not in x_from_the_dataa:
+                if c == len(x_from_the_dataa):
                     y_data_cpu.append(None)
                 else:
-                    y_data_cpu.append(yhaha[c])
-                    c += 1
+                    if i == x_from_the_dataa[c]:
+                        y_data_cpu.append(yhaha[c])
+                        c += 1
+                    else:
+                        y_data_cpu.append(None)
             yhaha = [(float(ts[3])/float(ts[2]))*100 for ts in data]
             y_data_mem = []
             c = 0
             for i in x_data:
-                if i not in x_from_the_dataa:
+                if c == len(x_from_the_dataa):
                     y_data_mem.append(None)
                 else:
-                    y_data_mem.append(yhaha[c])
-                    c += 1
+                    if i == x_from_the_dataa[c]:
+                        y_data_mem.append(yhaha[c])
+                        c += 1
+                    else:
+                        y_data_mem.append(None)
             yhaha = [(float(ts[5])/float(ts[4]))*100 for ts in data]
             y_data_disk = []
             c = 0
             for i in x_data:
-                if i not in x_from_the_dataa:
+                if c == len(x_from_the_dataa):
                     y_data_disk.append(None)
                 else:
-                    y_data_disk.append(yhaha[c])
-                    c += 1
+                    if i == x_from_the_dataa[c]:
+                        y_data_disk.append(yhaha[c])
+                        c += 1
+                    else:
+                        y_data_disk.append(None)
 
             axs[0].set_ylim(0, 101)
             axs[1].set_ylim(0, 101)
