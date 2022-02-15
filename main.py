@@ -183,41 +183,28 @@ def setup_window():
         x_from_the_dataa = [datetime.strptime(
             i[0], "%Y-%m-%d %H:%M") for i in data]
         yhaha = [float(ts[1]) for ts in data]
-        y_data_cpu = []
-        c = 0
-        for i in x_data:
-            if c == len(x_from_the_dataa):
-                y_data_cpu.append(None)
-            else:
-                if i == x_from_the_dataa[c]:
-                    y_data_cpu.append(yhaha[c])
-                    c += 1
-                else:
-                    y_data_cpu.append(None)
+        y_data_cpu = [None]*int((x_from_the_dataa[0]-date1).total_seconds()//60)
+        for i in range(len(x_from_the_dataa)-1):
+            y_data_cpu.append(yhaha[i])
+            y_data_cpu.extend([None]*(int((x_from_the_dataa[i+1]-x_from_the_dataa[i]).total_seconds()//60)-1))
+        y_data_cpu.append(yhaha[-1])
+        y_data_cpu.extend([None]*int((date2-x_from_the_dataa[-1]).total_seconds()//60))
+
         yhaha = [(float(ts[3])/float(ts[2]))*100 for ts in data]
-        y_data_mem = []
-        c = 0
-        for i in x_data:
-            if c == len(x_from_the_dataa):
-                y_data_mem.append(None)
-            else:
-                if i == x_from_the_dataa[c]:
-                    y_data_mem.append(yhaha[c])
-                    c += 1
-                else:
-                    y_data_mem.append(None)
+        y_data_mem = [None]*int((x_from_the_dataa[0]-date1).total_seconds()//60)
+        for i in range(len(x_from_the_dataa)-1):
+            y_data_mem.append(yhaha[i])
+            y_data_mem.extend([None]*(int((x_from_the_dataa[i+1]-x_from_the_dataa[i]).total_seconds()//60)-1))
+        y_data_mem.append(yhaha[-1])
+        y_data_mem.extend([None]*int((date2-x_from_the_dataa[-1]).total_seconds()//60))
+
         yhaha = [(float(ts[5])/float(ts[4]))*100 for ts in data]
-        y_data_disk = []
-        c = 0
-        for i in x_data:
-            if c == len(x_from_the_dataa):
-                y_data_disk.append(None)
-            else:
-                if i == x_from_the_dataa[c]:
-                    y_data_disk.append(yhaha[c])
-                    c += 1
-                else:
-                    y_data_disk.append(None)
+        y_data_disk = [None]*int((x_from_the_dataa[0]-date1).total_seconds()//60)
+        for i in range(len(x_from_the_dataa)-1):
+            y_data_disk.append(yhaha[i])
+            y_data_disk.extend([None]*(int((x_from_the_dataa[i+1]-x_from_the_dataa[i]).total_seconds()//60)-1))
+        y_data_disk.append(yhaha[-1])
+        y_data_disk.extend([None]*int((date2-x_from_the_dataa[-1]).total_seconds()//60))
 
         axs[0].set_ylim(0, 101)
         axs[1].set_ylim(0, 101)
@@ -436,41 +423,28 @@ def setup_window():
             x_from_the_dataa = [datetime.strptime(
                 i[0], "%Y-%m-%d %H:%M") for i in data]
             yhaha = [float(ts[1]) for ts in data]
-            y_data_cpu = []
-            c = 0
-            for i in x_data:
-                if c == len(x_from_the_dataa):
-                    y_data_cpu.append(None)
-                else:
-                    if i == x_from_the_dataa[c]:
-                        y_data_cpu.append(yhaha[c])
-                        c += 1
-                    else:
-                        y_data_cpu.append(None)
+            y_data_cpu = [None]*int((x_from_the_dataa[0]-date1).total_seconds()//60)
+            for i in range(len(x_from_the_dataa)-1):
+                y_data_cpu.append(yhaha[i])
+                y_data_cpu.extend([None]*(int((x_from_the_dataa[i+1]-x_from_the_dataa[i]).total_seconds()//60)-1))
+            y_data_cpu.append(yhaha[-1])
+            y_data_cpu.extend([None]*int((date2-x_from_the_dataa[-1]).total_seconds()//60))
+
             yhaha = [(float(ts[3])/float(ts[2]))*100 for ts in data]
-            y_data_mem = []
-            c = 0
-            for i in x_data:
-                if c == len(x_from_the_dataa):
-                    y_data_mem.append(None)
-                else:
-                    if i == x_from_the_dataa[c]:
-                        y_data_mem.append(yhaha[c])
-                        c += 1
-                    else:
-                        y_data_mem.append(None)
+            y_data_mem = [None]*int((x_from_the_dataa[0]-date1).total_seconds()//60)
+            for i in range(len(x_from_the_dataa)-1):
+                y_data_mem.append(yhaha[i])
+                y_data_mem.extend([None]*(int((x_from_the_dataa[i+1]-x_from_the_dataa[i]).total_seconds()//60)-1))
+            y_data_mem.append(yhaha[-1])
+            y_data_mem.extend([None]*int((date2-x_from_the_dataa[-1]).total_seconds()//60))
+
             yhaha = [(float(ts[5])/float(ts[4]))*100 for ts in data]
-            y_data_disk = []
-            c = 0
-            for i in x_data:
-                if c == len(x_from_the_dataa):
-                    y_data_disk.append(None)
-                else:
-                    if i == x_from_the_dataa[c]:
-                        y_data_disk.append(yhaha[c])
-                        c += 1
-                    else:
-                        y_data_disk.append(None)
+            y_data_disk = [None]*int((x_from_the_dataa[0]-date1).total_seconds()//60)
+            for i in range(len(x_from_the_dataa)-1):
+                y_data_disk.append(yhaha[i])
+                y_data_disk.extend([None]*(int((x_from_the_dataa[i+1]-x_from_the_dataa[i]).total_seconds()//60)-1))
+            y_data_disk.append(yhaha[-1])
+            y_data_disk.extend([None]*int((date2-x_from_the_dataa[-1]).total_seconds()//60))
 
             axs[0].set_ylim(0, 101)
             axs[1].set_ylim(0, 101)
