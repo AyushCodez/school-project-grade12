@@ -166,6 +166,8 @@ def setup_window():
         date2 = datetime.strptime(
             cal1_tab2.get_date() + f' {a1}:{b1}:59', '%Y-%m-%d %H:%M:%S')
         data = database_util.get_data_from_date(date1, date2)
+        if len(data) == 0:
+            data = [[cal_tab2.get_date() + f' {a}:{b}',0,1,0,1,0]]
 
         # create 3 subplots for cpu, memory, disk
         fig, axs = plt.subplots(3, dpi=100, figsize=(6, 5))
