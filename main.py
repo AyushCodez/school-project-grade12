@@ -231,8 +231,8 @@ def setup_window():
         date1 = datetime.strptime(
             cal_tab2.get_date() + f' {a}:{b}:00', '%Y-%m-%d %H:%M:%S')
         date2 = datetime.strptime(
-            cal1_tab2.get_date() + f' {a1}:{b1}:59', '%Y-%m-%d %H:%M:%S')
-        if date1 > date2:
+            cal1_tab2.get_date() + f' {a1}:{b1}:00', '%Y-%m-%d %H:%M:%S')
+        if date1 >= date2:
             button2.config(state='disabled')
         else:
             button2.config(state='normal')
@@ -363,8 +363,8 @@ def setup_window():
         date1 = datetime.strptime(
             cal_var.get() + f' {a}:{b}:00', '%Y-%m-%d %H:%M:%S')
         date2 = datetime.strptime(
-            cal1.get_date() + f' {a1}:{b1}:59', '%Y-%m-%d %H:%M:%S')
-        if date1 > date2:
+            cal1.get_date() + f' {a1}:{b1}:00', '%Y-%m-%d %H:%M:%S')
+        if date1 >= date2:
             button1.config(state='disabled')
         else:
             button1.config(state='normal')
