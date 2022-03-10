@@ -1,6 +1,6 @@
 import csv
 import os
-from datetime import datetime
+from datetime import datetime,timedelta
 
 
 def save_data_to_db(data):
@@ -16,11 +16,10 @@ def update_csv():
         data = list(reader)
     with open(os.path.join(os.getcwd(), "data1.csv"), 'w', newline='') as f:
         writer = csv.writer(f)
-        t = datetime.now()
+        t = datetime.now()-timedelta(days=31)
         for i in data:
-
-            a = t - datetime.strptime(i[0], '%Y-%m-%d %H:%M')
-            if a.days <= 31:
+            a = datetime.strptime(i[0], '%Y-%m-%d %H:%M')
+            if a >= t:
                 writer.writerow(i)
 
 
